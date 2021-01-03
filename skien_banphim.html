@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sự kiện bàn phím</title>
+</head>
+<body onload="docready()">
+<img id="nobita" src="audio/images.png" style="position: absolute;left: 0;top: 0;" alt="sorry"/>
+<script>
+    function uparrow() {
+        let element= document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) - 5 +'px';
+    }
+    function downarrow() {
+        let  element= document.getElementById('nobita');
+        element.style.top= parseInt(element.style.top) + 5 +'px';
+    }
+    function leftnarrow() {
+        let  element= document.getElementById('nobita');
+        element.style.left = parseInt(element.style.left) - 5 +'px';
+    }
+    function rightarrow() {
+        let  element= document.getElementById('nobita');
+        element.style.left= parseInt(element.style.left) + 5 +'px';
+    }
+    function moveselect(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftnarrow();
+                break;
+            case 39:
+                rightarrow();
+                break;
+            case 38:
+                uparrow();
+                break;
+            case 40:
+                downarrow();
+                break;
+        }
+    }
+    function docready() {
+        window.addEventListener('keydown', moveselect);
+    }
+</script>
+</body>
+</html>

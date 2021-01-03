@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính</title>
+</head>
+<style>
+    td {
+        width: 60px;
+        height: 40px;
+        text-align: center;
+    }
+    td#screen {
+        text-align: right;
+        font-size: 25px;
+        padding: 5px;
+    }
+</style>
+<body>
+<table style="display:inline-block" border="1px">
+    <tr>
+        <td id="screen" colspan="4"></td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(1)">1</td>
+        <td onclick="clickCell(2)">2</td>
+        <td onclick="clickCell(3)">3</td>
+        <td onclick="clickCell('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(4)">4</td>
+        <td onclick="clickCell(5)">5</td>
+        <td onclick="clickCell(6)">6</td>
+        <td onclick="clickCell('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(7)">7</td>
+        <td onclick="clickCell(8)">8</td>
+        <td onclick="clickCell(9)">9</td>
+        <td onclick="clickCell('*')">X</td>
+    </tr>
+    <tr>
+        <td onclick="resetscreen()">C</td>
+        <td onclick="clickCell(0)">0</td>
+        <td onclick="cal()">=</td>
+        <td onclick="clickCell('/')">/</td>
+    </tr>
+</table>
+</body>
+</html>
+<script>
+    let screen= document.getElementById('screen');
+    // B2:click số
+    function clickCell(number) {
+        if (screen.innerHTML == '0'){
+            screen.innerHTML = number;
+        }else {
+            screen.innerHTML += number;
+        }
+
+    }
+    //B3:tính toán
+    function cal() {
+        let listValue=screen.innerHTML;
+        let result= eval(listValue);
+
+    }
+    //B4: hiển thị kết quả
+    if (Number.isInteger(result)== false) {
+        result= result.toFixed(2);
+    }
+    if (result== 'infinity'){
+        result='Syntax Error';
+    }
+    screen.innerHTML = result;
+    function resetscreen() {
+        screen.innerText ='0';
+    }
+</script>

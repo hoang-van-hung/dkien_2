@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chỉ số cân nặng của cơ thể</title>
+</head>
+<body>
+Nhập  cân nặng của bạn:
+<input type="text" id="weight"> <br> <br>
+Nhập chiều cao của bạn:
+<input type="text" id="height"> <br> <br>
+
+<button type="button" onclick="show()";>Chỉ số BMI</button>
+
+<Script>
+
+
+function show() {
+    let cannang = Number(document.getElementById('weight'));
+    let chieucao = Number(document.getElementById('height'));
+    bmi = Number(cannang/(chieucao*chieucao));
+console.log(bmi);
+    if (bmi <18)
+        document.write("Underweight");
+    else if (bmi <25)
+        document.write("Normal");
+    else if (bmi <30)
+        document.write("Overweight");
+    else
+        document.write("Obese");
+}
+</Script>
+</body>
+</html>
